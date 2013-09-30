@@ -33,7 +33,7 @@ function smartCopy(cudaModule,floatNetwork)
       floatNetwork.modules[#floatNetwork.modules].gradWeight = nil
       floatNetwork.modules[#floatNetwork.modules].gradInput  = nil
       floatNetwork.modules[#floatNetwork.modules].weight     = cudaModule.weight:transpose(4,3):transpose(3,2):transpose(2,1):float()
-      floatNetwork.modules[#floatNetwork.modules].bias       = cudaModule.bias:clone():float()
+      floatNetwork.modules[#floatNetwork.modules].bias       = cudaModule.bias:float()
    elseif cudaModule.__typename == 'nn.SpatialMaxPoolingCUDA' then
       print(' + Converting <nn.SpatialMaxPoolingCUDA> into <nn.SpatialMaxPooling>')
       floatNetwork:add(nn.SpatialMaxPooling(cudaModule.kW, cudaModule.kH, cudaModule.dW, cudaModule.dH))
