@@ -1,7 +1,7 @@
 -- Parsing the command line ----------------------------------------------------
--- lapp = require 'pl.lapp'
-require 'pl'
+lapp = require 'pl.lapp'
 lapp.slack = true
+
 args = lapp [[
 Does some calculations
    -v, --video              (string)             Specify input video
@@ -18,5 +18,6 @@ Does some calculations
 -- Plotting the parsed commands ------------------------------------------------
 print 'args ='
 print(args)
+
 pretty = require 'pl.pretty'
 pretty.dump(args)
