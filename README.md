@@ -11,7 +11,7 @@ Most of the time the scripts are just usefull routines or functions I am using f
  - [Cuda to Float network converter](#cuda-to-float-network-converter)
 
 ### Command line parser
-`penlightTest` shows a great deal of command line parser options that could turn helpful when we need to send some initial configuration values to the script in a compact manner. Running the script in `lua` (or `torch`) with no argument will print on screen the help screen (usually reachable with the option `--help` or `-h`, which in **this** case has been deliberately overwritten to be the `hight` handle).
+`penlightTest` shows a great deal of command line parser options that could turn helpful when we need to send some initial configuration values to the script in a compact manner. Running the script in `lua` (or `torch`) with no argument will print on screen the help screen (usually reachable with the option `--help` or `-h`, which in **this** case has been deliberately overwritten to be the `height` handle).
 ```bash
 lua penlightTest.lua
 ```
