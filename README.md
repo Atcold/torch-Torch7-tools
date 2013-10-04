@@ -15,7 +15,7 @@ Most of the time the scripts are just usefull routines or functions I am using f
 ```bash
 lua penlightTest.lua
 ```
-Moreover, you can notice the presence of `default false` and `default true` flags and short *multi-letter* handles as well which are not iterpreted as in the Unix environment (say like `ls -al`) because of the `slack = true` of `lapp` has been set to true.
+Moreover, you can notice the presence of `default false` and `default true` flags and short *multi-letter* handles as well, which are not iterpreted as in the Unix environment (say like `ls -al`) because of `slack = true` of `lapp` has been (intentionally) set to `true`.
 You can run the test like this (it will show everything it can do that I care)
 ```bash
 lua penlightTest.lua -v abc --time 40 -h 20 -sk 15 --flag1 -f3
