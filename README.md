@@ -7,8 +7,20 @@ Most of the time the scripts are just usefull routines or functions I am using f
 ## Tools description
 
 ### Table of contents
+ - [Network lightener](#network-lightener)
  - [Command line parser](#command-line-parser)
  - [Cuda to Float network converter](#cuda-to-float-network-converter)
+ 
+### Network lightener
+`netLighter` library provides a `saveNet(name, network)` function which saves a lighter version of your current network, removing all unnecessary data from it (such as *gradients*, *temporal data* and etc...). The default location is `./`; if a different one is preferred instead, you may want to specify it with a global option `opt.save = 'my-path/'`. Usage:
+
+```lua
+-- if './' is not ok:
+opt = opt or {}
+opt.save = 'my-path/'
+-- otherwise, it will be sufficient only:
+require 'netLighter'
+```
 
 ### Command line parser
 `penlightTest` shows a great deal of command line parser options that could turn helpful when we need to send some initial configuration values to the script in a compact manner. Running the script in `lua` (or `torch`) with no argument will print on screen the help screen (usually reachable with the option `--help` or `-h`, which in **this** case has been deliberately overwritten to be the `height` handle).
