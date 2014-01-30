@@ -14,6 +14,7 @@ function nilling(module)
    module.output     = torch.Tensor()
    module.fgradInput = nil
    module.gradInput  = nil
+   if module.indices then module.indices = torch.Tensor() end
 end
 
 function netLighter(network)
