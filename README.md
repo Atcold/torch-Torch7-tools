@@ -20,6 +20,8 @@ opt = opt or {}
 opt.save = 'my-path/'
 -- otherwise, it will be sufficient only:
 require 'netLighter'
+-- net = nn.Sequential() and other stuff
+saveNet('myNet.net',net)
 ```
 
 ### Command line parser
