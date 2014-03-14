@@ -31,7 +31,7 @@ function saveNet(name, model)
    local filename = paths.concat(opt.save, name)
    os.execute('mkdir -p ' .. sys.dirname(filename))
    print('==> saving model to '..filename)
-   modelToSave = model:float()
+   local modelToSave = model:float()
    netLighter(modelToSave)
    torch.save(filename, modelToSave)
 end
