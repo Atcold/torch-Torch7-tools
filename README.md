@@ -11,30 +11,33 @@ Most of the time the scripts are just usefull routines or functions I am using f
  - [Gradient repopulation](#gradient-repopulation)
  - [Command line parser](#command-line-parser)
  - [Cuda to Float network converter](#cuda-to-float-network-converter)
- 
-### Network lightener
-`netLighter` library provides a `saveNet(name, network)` function which saves a lighter version of your current network, removing all unnecessary data from it (such as *gradients*, *temporal data* and etc...). The default location is `./`; if a different one is preferred instead, you may want to specify it with a global option `opt.save = 'my-path/'`. Usage:
 
-```lua
--- if './' is not ok:
-opt = opt or {}
-opt.save = 'my-path/'
--- otherwise, it will be sufficient only:
-require 'netLighter'
--- net = nn.Sequential() and other stuff
-saveNet('myNet.net',net)
-```
+### Important!
+The new `net-toolkit` Torch7 package will be released soon. Basically it will provide a way for easily handling networks and it will include the following two functions, which are to be considered therefore deprecated.
 
-### Gradient repopulation
-Let's say we would like to load a network we have previously saved with `saveNet()` for continuing a training session on it. Some inner parameters (something about *gradients*) have to be restored, since `saveNet()` did a pruning operation on the network in order to save space. Here is how we can handle this case:
+> ### Network lightener
+> `netLighter` library provides a `saveNet(name, network)` function which saves a lighter version of your current network, removing all unnecessary data from it (such as *gradients*, *temporal data* and etc...). The default location is `./`; if a different one is preferred instead, you may want to specify it with a global option `opt.save = 'my-path/'`. Usage:
 
-```lua
-local networkFile = '/path/To/MyNet.net'
-model = torch.load(networkFile)
-repopulateGrad(model)
-```
+> ```lua
+> -- if './' is not ok:
+> opt = opt or {}
+> opt.save = 'my-path/'
+> -- otherwise, it will be sufficient only:
+> require 'netLighter'
+> -- net = nn.Sequential() and other stuff
+> saveNet('myNet.net',net)
+> ```
 
-Now we can keep training, perhaps without forgetting to define a *criterion* `loss` (the criterion is not saved with the network, so we have to re-define it, if we don't already do it somewhere else in the code).
+> ### Gradient repopulation
+> Let's say we would like to load a network we have previously saved with `saveNet()` for continuing a training > session on it. Some inner parameters (something about *gradients*) have to be restored, since `saveNet()` did a pruning operation on the network in order to save space. Here is how we can handle this case:
+
+> ```lua
+> local networkFile = '/path/To/MyNet.net'
+> model = torch.load(networkFile)
+> repopulateGrad(model)
+> ```
+
+> Now we can keep training, perhaps without forgetting to define a *criterion* `loss` (the criterion is not saved with the network, so we have to re-define it, if we don't already do it somewhere else in the code).
 
 ### Command line parser
 `penlightTest` shows a great deal of command line parser options that could turn helpful when we need to send some initial configuration values to the script in a compact manner. Running the script in `lua` (or `torch`) with no argument will print on screen the help screen (usually reachable with the option `--help` or `-h`, which in **this** case has been deliberately overwritten to be the `height` handle).
