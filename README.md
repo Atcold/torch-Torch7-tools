@@ -1,7 +1,6 @@
-Torch7-tools
-============
+# Torch7-tools
 
-This would be a collection of useful routines and function currently missing in Torch7.  
+This would be a collection of useful routines and function currently missing in [`Torch7`](https://github.com/torch/torch7).  
 Most of the time the scripts are just usefull routines or functions I am using for my job and I am allowed to extract and publish here.
 
 ## Tools description
@@ -13,7 +12,7 @@ Most of the time the scripts are just usefull routines or functions I am using f
  - [Cuda to Float network converter](#cuda-to-float-network-converter)
 
 ### Important!
-The new `net-toolkit` Torch7 package will be released soon. Basically it will provide a way for easily handling networks and it will include the following two functions, which are to be considered therefore deprecated.
+The new [`net-toolkit`](https://github.com/Atcold/net-toolkit/tree/master) Torch7 package will be released soon. Basically it will provide a way for easily handling networks and it will include the following two functions, which are to be considered therefore deprecated.
 
 > ### Network lightener
 > `netLighter` library provides a `saveNet(name, network)` function which saves a lighter version of your current network, removing all unnecessary data from it (such as *gradients*, *temporal data* and etc...). The default location is `./`; if a different one is preferred instead, you may want to specify it with a global option `opt.save = 'my-path/'`. Usage:
