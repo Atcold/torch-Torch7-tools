@@ -1,10 +1,10 @@
-#!/usr/bin/env torch
+#!/usr/bin/env th
 --------------------------------------------------------------------------------
 -- Conversion script: it turns a CUDA network into a CPU one
 --------------------------------------------------------------------------------
 --
 -- Iteratively scanning the network, it disregard the transposition modules
--- and convert <SpatialConvolutionCUDA> into <SpatialConvolution> and 
+-- and convert <SpatialConvolutionCUDA> into <SpatialConvolution> and
 -- <SpatialMaxPoolingCUDA> into <SpatialMaxPooling>. Al other modules are copied
 --
 --------------------------------------------------------------------------------
@@ -41,7 +41,7 @@ function smartCopy(cudaModule,floatNetwork)
       floatNetwork.modules[#floatNetwork.modules].gradInput  = nil
    elseif cudaModule.__typename ~= 'nn.Transpose' then
       print(' + Copying <' .. cudaModule.__typename .. '>')
-      floatNetwork:add(cudaModule)
+      floatNetwork:add(cudaModule:float())
    end
 end
 
